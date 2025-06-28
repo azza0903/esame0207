@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Diario Attivita",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/DiarioAttivita",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": true,
+      "MIMode": "lldb",
+      "miDebuggerPath": "/usr/bin/lldb",
+      "preLaunchTask": "build DiarioAttivita"
+    }
+  ]
+}
