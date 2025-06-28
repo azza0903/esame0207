@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/workspaces/esame0207/build",
+  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/DiarioAttivita.dir/main.cpp.o -c /workspaces/esame0207/main.cpp",
+  "file": "/workspaces/esame0207/main.cpp",
+  "output": "CMakeFiles/DiarioAttivita.dir/main.cpp.o"
+},
+{
+  "directory": "/workspaces/esame0207/build",
+  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.o -c /workspaces/esame0207/DiarioAttivita.cpp",
+  "file": "/workspaces/esame0207/DiarioAttivita.cpp",
+  "output": "CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.o"
+}
+]

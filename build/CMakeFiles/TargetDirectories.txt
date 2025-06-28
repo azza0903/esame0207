@@ -1,0 +1,3 @@
+/workspaces/esame0207/build/CMakeFiles/DiarioAttivita.dir
+/workspaces/esame0207/build/CMakeFiles/edit_cache.dir
+/workspaces/esame0207/build/CMakeFiles/rebuild_cache.dir
