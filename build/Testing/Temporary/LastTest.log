@@ -1,0 +1,114 @@
+Start testing: Jun 30 15:37 UTC
+----------------------------------------------------------
+1/4 Testing: DiarioAttivitaTest.ValidaOra_Corretta
+1/4 Test: DiarioAttivitaTest.ValidaOra_Corretta
+Command: "/workspaces/esame0207/build/test_diario" "--gtest_filter=DiarioAttivitaTest.ValidaOra_Corretta" "--gtest_also_run_disabled_tests"
+Directory: /workspaces/esame0207/build
+"DiarioAttivitaTest.ValidaOra_Corretta" start time: Jun 30 15:37 UTC
+Output:
+----------------------------------------------------------
+Running main() from /workspaces/esame0207/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DiarioAttivitaTest.ValidaOra_Corretta
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DiarioAttivitaTest
+[ RUN      ] DiarioAttivitaTest.ValidaOra_Corretta
+[       OK ] DiarioAttivitaTest.ValidaOra_Corretta (1 ms)
+[----------] 1 test from DiarioAttivitaTest (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (1 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"DiarioAttivitaTest.ValidaOra_Corretta" end time: Jun 30 15:37 UTC
+"DiarioAttivitaTest.ValidaOra_Corretta" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/4 Testing: DiarioAttivitaTest.ValidaData_Corretta
+2/4 Test: DiarioAttivitaTest.ValidaData_Corretta
+Command: "/workspaces/esame0207/build/test_diario" "--gtest_filter=DiarioAttivitaTest.ValidaData_Corretta" "--gtest_also_run_disabled_tests"
+Directory: /workspaces/esame0207/build
+"DiarioAttivitaTest.ValidaData_Corretta" start time: Jun 30 15:37 UTC
+Output:
+----------------------------------------------------------
+Running main() from /workspaces/esame0207/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DiarioAttivitaTest.ValidaData_Corretta
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DiarioAttivitaTest
+[ RUN      ] DiarioAttivitaTest.ValidaData_Corretta
+[       OK ] DiarioAttivitaTest.ValidaData_Corretta (0 ms)
+[----------] 1 test from DiarioAttivitaTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"DiarioAttivitaTest.ValidaData_Corretta" end time: Jun 30 15:37 UTC
+"DiarioAttivitaTest.ValidaData_Corretta" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/4 Testing: DiarioAttivitaTest.SalvataggioCaricamentoFile
+3/4 Test: DiarioAttivitaTest.SalvataggioCaricamentoFile
+Command: "/workspaces/esame0207/build/test_diario" "--gtest_filter=DiarioAttivitaTest.SalvataggioCaricamentoFile" "--gtest_also_run_disabled_tests"
+Directory: /workspaces/esame0207/build
+"DiarioAttivitaTest.SalvataggioCaricamentoFile" start time: Jun 30 15:37 UTC
+Output:
+----------------------------------------------------------
+Running main() from /workspaces/esame0207/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DiarioAttivitaTest.SalvataggioCaricamentoFile
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DiarioAttivitaTest
+[ RUN      ] DiarioAttivitaTest.SalvataggioCaricamentoFile
+[       OK ] DiarioAttivitaTest.SalvataggioCaricamentoFile (1 ms)
+[----------] 1 test from DiarioAttivitaTest (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (1 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"DiarioAttivitaTest.SalvataggioCaricamentoFile" end time: Jun 30 15:37 UTC
+"DiarioAttivitaTest.SalvataggioCaricamentoFile" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: DiarioAttivitaTest.EliminaAttivita
+4/4 Test: DiarioAttivitaTest.EliminaAttivita
+Command: "/workspaces/esame0207/build/test_diario" "--gtest_filter=DiarioAttivitaTest.EliminaAttivita" "--gtest_also_run_disabled_tests"
+Directory: /workspaces/esame0207/build
+"DiarioAttivitaTest.EliminaAttivita" start time: Jun 30 15:37 UTC
+Output:
+----------------------------------------------------------
+Running main() from /workspaces/esame0207/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DiarioAttivitaTest.EliminaAttivita
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DiarioAttivitaTest
+[ RUN      ] DiarioAttivitaTest.EliminaAttivita
+[H[2J[3J1. 2025-06-29 08:00-09:00: Compiti
+2. 2025-06-29 18:00-19:00: Passeggiata
+
+Inserisci il numero dell'attivita da eliminare (0 per annullare): [       OK ] DiarioAttivitaTest.EliminaAttivita (12196 ms)
+[----------] 1 test from DiarioAttivitaTest (12196 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (12196 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =  12.20 sec
+----------------------------------------------------------
+Test Passed.
+"DiarioAttivitaTest.EliminaAttivita" end time: Jun 30 15:38 UTC
+"DiarioAttivitaTest.EliminaAttivita" time elapsed: 00:00:12
+----------------------------------------------------------
+
+End testing: Jun 30 15:38 UTC

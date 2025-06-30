@@ -1,25 +1,25 @@
 [
 {
   "directory": "/workspaces/esame0207/build",
-  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/DiarioAttivita.dir/main.cpp.o -c /workspaces/esame0207/main.cpp",
+  "command": "/usr/bin/g++  -I/workspaces/esame0207 -g -std=gnu++17 -o CMakeFiles/DiarioAttivita.dir/main.cpp.o -c /workspaces/esame0207/main.cpp",
   "file": "/workspaces/esame0207/main.cpp",
   "output": "CMakeFiles/DiarioAttivita.dir/main.cpp.o"
 },
 {
   "directory": "/workspaces/esame0207/build",
-  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.o -c /workspaces/esame0207/DiarioAttivita.cpp",
+  "command": "/usr/bin/g++  -I/workspaces/esame0207 -g -std=gnu++17 -o CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.o -c /workspaces/esame0207/DiarioAttivita.cpp",
   "file": "/workspaces/esame0207/DiarioAttivita.cpp",
   "output": "CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.o"
 },
 {
   "directory": "/workspaces/esame0207/build",
-  "command": "/usr/bin/g++  -isystem /workspaces/esame0207/build/_deps/googletest-src/googletest/include -isystem /workspaces/esame0207/build/_deps/googletest-src/googletest -g -std=gnu++17 -o CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.o -c /workspaces/esame0207/test_DiarioAttivita.cpp",
+  "command": "/usr/bin/g++  -I/workspaces/esame0207 -isystem /workspaces/esame0207/build/_deps/googletest-src/googletest/include -isystem /workspaces/esame0207/build/_deps/googletest-src/googletest -g -std=gnu++17 -o CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.o -c /workspaces/esame0207/test_DiarioAttivita.cpp",
   "file": "/workspaces/esame0207/test_DiarioAttivita.cpp",
   "output": "CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.o"
 },
 {
   "directory": "/workspaces/esame0207/build",
-  "command": "/usr/bin/g++  -isystem /workspaces/esame0207/build/_deps/googletest-src/googletest/include -isystem /workspaces/esame0207/build/_deps/googletest-src/googletest -g -std=gnu++17 -o CMakeFiles/test_diario.dir/DiarioAttivita.cpp.o -c /workspaces/esame0207/DiarioAttivita.cpp",
+  "command": "/usr/bin/g++  -I/workspaces/esame0207 -isystem /workspaces/esame0207/build/_deps/googletest-src/googletest/include -isystem /workspaces/esame0207/build/_deps/googletest-src/googletest -g -std=gnu++17 -o CMakeFiles/test_diario.dir/DiarioAttivita.cpp.o -c /workspaces/esame0207/DiarioAttivita.cpp",
   "file": "/workspaces/esame0207/DiarioAttivita.cpp",
   "output": "CMakeFiles/test_diario.dir/DiarioAttivita.cpp.o"
 },

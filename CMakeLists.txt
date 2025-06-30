@@ -13,6 +13,8 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 enable_testing()
+include_directories(${CMAKE_SOURCE_DIR})
+
 
 # Aggiunta dell'eseguibile principale
 add_executable(DiarioAttivita
@@ -26,10 +28,12 @@ add_executable(test_diario
     DiarioAttivita.cpp
 )
 
+# Collegamento delle librerie necessarie
 target_link_libraries(test_diario
   gtest_main
+  gtest
+  pthread
 )
-
 include(GoogleTest)
 gtest_discover_tests(test_diario)
 

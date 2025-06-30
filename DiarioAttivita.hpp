@@ -3,7 +3,6 @@
 
 #include <string>
 #include <vector>
-#include <gtest/gtest.h>
 
 struct Attivita {
     std::string descrizione;
@@ -21,21 +20,14 @@ private:
     std::string nome_file;
 
     void pulisciSchermo();
-
-      // Autorizzazioni per i test
-    FRIEND_TEST(DiarioAttivitaTest, ValidaOra_Corretta);
-    FRIEND_TEST(DiarioAttivitaTest, ValidaData_Corretta);
-    FRIEND_TEST(DiarioAttivitaTest, SalvataggioCaricamentoFile);
-    FRIEND_TEST(DiarioAttivitaTest, EliminaAttivita);
-
-
-    bool validaOra(const std::string& ora);
-    bool validaData(const std::string& data);
+   
+    friend class DiarioAttivitaTest;
 
 public:
     DiarioAttivita();
     ~DiarioAttivita();
-
+    bool validaOra(const std::string& ora);
+    bool validaData(const std::string& data);
     void aggiungiAttivita();
     void visualizzaAttivita();
     void visualizzaTutteAttivita();
