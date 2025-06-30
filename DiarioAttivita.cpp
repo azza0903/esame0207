@@ -1,4 +1,3 @@
-
 #include "DiarioAttivita.hpp"
 #include <iostream>
 #include <fstream>

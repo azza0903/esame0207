@@ -3,7 +3,6 @@
 
 #include <string>
 #include <vector>
-#include <gtest/gtest.h>
 
 struct Attivita {
     std::string descrizione;
