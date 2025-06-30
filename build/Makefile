@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /workspaces/esame0207/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
@@ -84,6 +94,51 @@ rebuild_cache:
 # Special rule for the target rebuild_cache
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -129,12 +184,78 @@ DiarioAttivita/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DiarioAttivita.dir/build.make CMakeFiles/DiarioAttivita.dir/build
 .PHONY : DiarioAttivita/fast
 
+#=============================================================================
+# Target rules for targets named test_diario
+
+# Build rule for target.
+test_diario: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_diario
+.PHONY : test_diario
+
+# fast build rule for target.
+test_diario/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_diario.dir/build.make CMakeFiles/test_diario.dir/build
+.PHONY : test_diario/fast
+
+#=============================================================================
+# Target rules for targets named gmock
+
+# Build rule for target.
+gmock: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock
+.PHONY : gmock
+
+# fast build rule for target.
+gmock/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build
+.PHONY : gmock/fast
+
+#=============================================================================
+# Target rules for targets named gmock_main
+
+# Build rule for target.
+gmock_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock_main
+.PHONY : gmock_main
+
+# fast build rule for target.
+gmock_main/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build
+.PHONY : gmock_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
 DiarioAttivita.o: DiarioAttivita.cpp.o
 .PHONY : DiarioAttivita.o
 
 # target to build an object file
 DiarioAttivita.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DiarioAttivita.dir/build.make CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_diario.dir/build.make CMakeFiles/test_diario.dir/DiarioAttivita.cpp.o
 .PHONY : DiarioAttivita.cpp.o
 
 DiarioAttivita.i: DiarioAttivita.cpp.i
@@ -143,6 +264,7 @@ DiarioAttivita.i: DiarioAttivita.cpp.i
 # target to preprocess a source file
 DiarioAttivita.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DiarioAttivita.dir/build.make CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_diario.dir/build.make CMakeFiles/test_diario.dir/DiarioAttivita.cpp.i
 .PHONY : DiarioAttivita.cpp.i
 
 DiarioAttivita.s: DiarioAttivita.cpp.s
@@ -151,6 +273,7 @@ DiarioAttivita.s: DiarioAttivita.cpp.s
 # target to generate assembly for a file
 DiarioAttivita.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DiarioAttivita.dir/build.make CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_diario.dir/build.make CMakeFiles/test_diario.dir/DiarioAttivita.cpp.s
 .PHONY : DiarioAttivita.cpp.s
 
 main.o: main.cpp.o
@@ -177,6 +300,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DiarioAttivita.dir/build.make CMakeFiles/DiarioAttivita.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+test_DiarioAttivita.o: test_DiarioAttivita.cpp.o
+.PHONY : test_DiarioAttivita.o
+
+# target to build an object file
+test_DiarioAttivita.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_diario.dir/build.make CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.o
+.PHONY : test_DiarioAttivita.cpp.o
+
+test_DiarioAttivita.i: test_DiarioAttivita.cpp.i
+.PHONY : test_DiarioAttivita.i
+
+# target to preprocess a source file
+test_DiarioAttivita.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_diario.dir/build.make CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.i
+.PHONY : test_DiarioAttivita.cpp.i
+
+test_DiarioAttivita.s: test_DiarioAttivita.cpp.s
+.PHONY : test_DiarioAttivita.s
+
+# target to generate assembly for a file
+test_DiarioAttivita.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_diario.dir/build.make CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.s
+.PHONY : test_DiarioAttivita.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -184,14 +331,27 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... DiarioAttivita"
+	@echo "... gmock"
+	@echo "... gmock_main"
+	@echo "... gtest"
+	@echo "... gtest_main"
+	@echo "... test_diario"
 	@echo "... DiarioAttivita.o"
 	@echo "... DiarioAttivita.i"
 	@echo "... DiarioAttivita.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... test_DiarioAttivita.o"
+	@echo "... test_DiarioAttivita.i"
+	@echo "... test_DiarioAttivita.s"
 .PHONY : help
 
 
