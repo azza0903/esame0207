@@ -31,10 +31,10 @@ void DiarioAttivita::pulisciSchermo() {
 bool DiarioAttivita::validaOra(const string& ora) {
     if (ora.length() != 5 || ora[2] != ':') return false;
     try {
-        int ore = stoi(ora.substr(0, 2));
+        int ore = stoi(ora.substr(0, 2)); // stoi converte le stringhe in interi 
         int minuti = stoi(ora.substr(3, 2));
         return (ore >= 0 && ore <= 23 && minuti >= 0 && minuti <= 59);
-    } catch (...) {
+    } catch (...) { 
         return false;
     }
 }
@@ -56,35 +56,35 @@ void DiarioAttivita::aggiungiAttivita() {
     Attivita nuova_attivita;
 
     cout << "\nDescrizione attivita: ";
-    cin.ignore();
-    getline(cin, nuova_attivita.descrizione);
+    cin.ignore(); // pulire il buffer di input 
+    getline(cin, nuova_attivita.descrizione); //leggere una riga intera 
 
     if (nuova_attivita.descrizione.empty()) {
         cout << "❌ Errore: La descrizione non puo essere vuota!" << endl;
-        cin.get();
+        cin.get(); // attende l'input dell'utente prima di tornare al menu 
         return;
     }
 
     do {
         cout << "Ora inizio (HH:MM): ";
-        getline(cin, nuova_attivita.ora_inizio);
+        getline(cin, nuova_attivita.ora_inizio); // leggere l'ora di inizio 
     } while (!validaOra(nuova_attivita.ora_inizio));
 
     do {
         cout << "Ora fine (HH:MM): ";
-        getline(cin, nuova_attivita.ora_fine);
+        getline(cin, nuova_attivita.ora_fine); // leggere l'ora di fine 
     } while (!validaOra(nuova_attivita.ora_fine));
 
     do {
         cout << "Data (YYYY-MM-DD): ";
-        getline(cin, nuova_attivita.data);
+        getline(cin, nuova_attivita.data); // leggere la data
     } while (!validaData(nuova_attivita.data));
 
     attivita.push_back(nuova_attivita);
     salvaSuFile();
 
     cout << "\n✅ Attivita salvata con successo!" << endl;
-    cin.get();
+    cin.get(); // attendre l'input prima di tornare al menu 
 }
 
 void DiarioAttivita::visualizzaAttivita() {
@@ -93,13 +93,13 @@ void DiarioAttivita::visualizzaAttivita() {
 
     do {
         cout << "\nInserisci la data (YYYY-MM-DD): ";
-        cin >> data;
+        cin >> data; // legeree la data 
         if (!validaData(data)) {
             cout << "❌ Formato data non valido!" << endl;
         }
     } while (!validaData(data));
 
-    vector<Attivita> attivita_giorno;
+    vector<Attivita> attivita_giorno; 
     for (const auto& att : attivita) {
         if (att.data == data) {
             attivita_giorno.push_back(att);
@@ -109,7 +109,7 @@ void DiarioAttivita::visualizzaAttivita() {
     if (attivita_giorno.empty()) {
         cout << "\n📝 Nessuna attivita registrata per questo giorno" << endl;
     } else {
-        sort(attivita_giorno.begin(), attivita_giorno.end(),
+        sort(attivita_giorno.begin(), attivita_giorno.end(), // ordinare le attivita per ora di inizio
              [](const Attivita& a, const Attivita& b) {
                  return a.ora_inizio < b.ora_inizio;
              });
@@ -119,8 +119,8 @@ void DiarioAttivita::visualizzaAttivita() {
         }
     }
 
-    cin.ignore();
-    cin.get();
+    cin.ignore();// pulire il buffer di input
+    cin.get();// attende l'input dell'utente prima di tornare al menu
 }
 
 void DiarioAttivita::visualizzaTutteAttivita() {
@@ -129,7 +129,7 @@ void DiarioAttivita::visualizzaTutteAttivita() {
     if (attivita.empty()) {
         cout << "\n📝 Nessuna attivita registrata" << endl;
     } else {
-        map<string, vector<Attivita>> attivita_per_data;
+        map<string, vector<Attivita>> attivita_per_data;// mappa per raggruppare le attivita per data
         for (const auto& att : attivita) {
             attivita_per_data[att.data].push_back(att);
         }
@@ -149,8 +149,8 @@ void DiarioAttivita::visualizzaTutteAttivita() {
         }
     }
 
-    cin.ignore();
-    cin.get();
+    cin.ignore();// pulire il buffer di input
+    cin.get();// attende l'input dell'utente prima di tornare al menu
 }
 
 void DiarioAttivita::eliminaAttivita() {
@@ -181,8 +181,8 @@ void DiarioAttivita::eliminaAttivita() {
         cout << "❌ Numero non valido!" << endl;
     }
 
-    cin.ignore();
-    cin.get();
+    cin.ignore();// pulire il buffer di input
+    cin.get();// attende l'input dell'utente prima di tornare al menu
 }
 
 void DiarioAttivita::salvaSuFile() {
