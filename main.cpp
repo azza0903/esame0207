@@ -1,17 +1,19 @@
-#include "DiarioAttivita.hpp"
+#include <string>
+#include <vector>
 #include <iostream>
 #include <limits>
 #include <cstdlib>
 #include <map>
 #include <algorithm>
+#include "DiarioAttivita.hpp"
 
 using namespace std;
 
 void pulisciSchermo() {
-#if defined(_WIN32) || defined(_WIN64)
-    std::system("cls");
+#ifdef _WIN32
+    system("cls");
 #else
-    std::system("clear");
+    system("clear");
 #endif
 }
 
@@ -75,7 +77,9 @@ int main() {
                     break;
                 }
 
-                diario.attivita.push_back(nuova);
+                vector<Attivita> elenco = diario.getAttivita();
+                elenco.push_back(nuova);
+                diario.setAttivita(elenco);
                 diario.salvaSuFile();
 
                 cout << "\n✅ Attivita salvata con successo!" << endl;
@@ -93,7 +97,7 @@ int main() {
                     cout << "❌ Formato data non valido!" << endl;
                 } else {
                     vector<Attivita> attivita_giorno;
-                    for (const auto& att : diario.attivita) {
+                    for (const auto& att : diario.getAttivita()) {
                         if (att.data == data) {
                             attivita_giorno.push_back(att);
                         }
@@ -120,11 +124,12 @@ int main() {
             case 3: {
                 pulisciSchermo();
 
-                if (diario.attivita.empty()) {
+                vector<Attivita> elenco = diario.getAttivita();
+                if (elenco.empty()) {
                     cout << "\n📝 Nessuna attivita registrata" << endl;
                 } else {
                     map<string, vector<Attivita>> attivita_per_data;
-                    for (const auto& att : diario.attivita) {
+                    for (const auto& att : elenco) {
                         attivita_per_data[att.data].push_back(att);
                     }
 
@@ -151,25 +156,27 @@ int main() {
             case 4: {
                 pulisciSchermo();
 
-                if (diario.attivita.empty()) {
+                vector<Attivita> elenco = diario.getAttivita();
+                if (elenco.empty()) {
                     cout << "\n📝 Nessuna attivita da eliminare" << endl;
                     cin.ignore();
                     cin.get();
                     break;
                 }
 
-                for (size_t i = 0; i < diario.attivita.size(); ++i) {
-                    cout << i + 1 << ". " << diario.attivita[i].data << " "
-                         << diario.attivita[i].ora_inizio << "-" << diario.attivita[i].ora_fine
-                         << ": " << diario.attivita[i].descrizione << endl;
+                for (size_t i = 0; i < elenco.size(); ++i) {
+                    cout << i + 1 << ". " << elenco[i].data << " "
+                         << elenco[i].ora_inizio << "-" << elenco[i].ora_fine
+                         << ": " << elenco[i].descrizione << endl;
                 }
 
                 cout << "\nInserisci il numero dell'attivita da eliminare (0 per annullare): ";
                 int scelta_elimina;
                 cin >> scelta_elimina;
 
-                if (scelta_elimina > 0 && scelta_elimina <= static_cast<int>(diario.attivita.size())) {
-                    diario.attivita.erase(diario.attivita.begin() + scelta_elimina - 1);
+                if (scelta_elimina > 0 && scelta_elimina <= static_cast<int>(elenco.size())) {
+                    elenco.erase(elenco.begin() + scelta_elimina - 1);
+                    diario.setAttivita(elenco);
                     diario.salvaSuFile();
                     cout << "✅ Attivita eliminata con successo!" << endl;
                 } else if (scelta_elimina != 0) {
