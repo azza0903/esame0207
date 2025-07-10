@@ -8,10 +8,10 @@
 using namespace std;
 
 void pulisciSchermo() {
-#ifdef _WIN32
-    system("cls");
+#if defined(_WIN32) || defined(_WIN64)
+    std::system("cls");
 #else
-    system("clear");
+    std::system("clear");
 #endif
 }
 
