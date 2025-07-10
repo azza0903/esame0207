@@ -29,8 +29,8 @@ public:
     bool validaOra(const std::string& ora); // Controlla se l'ora è valida nel formato HH:MM
     bool validaData(const std::string& data); // Controlla se la data è valida nel formato YYYY-MM-DD
     void aggiungiAttivita(); // Aggiunge una nuova attività al diario
-    void visualizzaAttivita();// Visualizza le attività di un giorno specifico
-    void visualizzaTutteAttivita();// Visualizza tutte le attività registrate
+    void visualizzaAttivita() const;// Visualizza le attività di un giorno specifico
+    void visualizzaTutteAttivita()const;// Visualizza tutte le attività registrate
     void eliminaAttivita();// Elimina un'attività specifica dal diario
     void mostraMenu();// Mostra il menu principale del diario
 

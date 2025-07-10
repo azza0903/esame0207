@@ -1,14 +1,8 @@
 #include "DiarioAttivita.hpp"
-#include <iostream>
 #include <fstream>
 #include <sstream>
-#include <iomanip>
-#include <algorithm>
-#include <map>
 
-using namespace std;
-
-Attivita::Attivita(const string& desc, const string& inizio, const string& fine, const string& d)
+Attivita::Attivita(const std::string& desc, const std::string& inizio, const std::string& fine, const std::string& d)
     : descrizione(desc), ora_inizio(inizio), ora_fine(fine), data(d) {}
 
 DiarioAttivita::DiarioAttivita() {
@@ -20,31 +14,23 @@ DiarioAttivita::~DiarioAttivita() {
     salvaSuFile();
 }
 
-void DiarioAttivita::pulisciSchermo() {
-#ifdef _WIN32
-    system("cls");
-#else
-    system("clear");
-#endif
-}
-
-bool DiarioAttivita::validaOra(const string& ora) {
+bool DiarioAttivita::validaOra(const std::string& ora) {
     if (ora.length() != 5 || ora[2] != ':') return false;
     try {
-        int ore = stoi(ora.substr(0, 2)); // stoi converte le stringhe in interi 
-        int minuti = stoi(ora.substr(3, 2));
+        int ore = std::stoi(ora.substr(0, 2));
+        int minuti = std::stoi(ora.substr(3, 2));
         return (ore >= 0 && ore <= 23 && minuti >= 0 && minuti <= 59);
-    } catch (...) { 
+    } catch (...) {
         return false;
     }
 }
 
-bool DiarioAttivita::validaData(const string& data) {
+bool DiarioAttivita::validaData(const std::string& data) {
     if (data.length() != 10 || data[4] != '-' || data[7] != '-') return false;
     try {
-        int anno = stoi(data.substr(0, 4));
-        int mese = stoi(data.substr(5, 2));
-        int giorno = stoi(data.substr(8, 2));
+        int anno = std::stoi(data.substr(0, 4));
+        int mese = std::stoi(data.substr(5, 2));
+        int giorno = std::stoi(data.substr(8, 2));
         return (anno >= 2020 && anno <= 2030 && mese >= 1 && mese <= 12 && giorno >= 1 && giorno <= 31);
     } catch (...) {
         return false;
@@ -52,189 +38,41 @@ bool DiarioAttivita::validaData(const string& data) {
 }
 
 void DiarioAttivita::aggiungiAttivita() {
-    pulisciSchermo();
-    Attivita nuova_attivita;
-
-    cout << "\nDescrizione attivita: ";
-    cin.ignore(); // pulire il buffer di input 
-    getline(cin, nuova_attivita.descrizione); //leggere una riga intera 
-
-    if (nuova_attivita.descrizione.empty()) {
-        cout << "❌ Errore: La descrizione non puo essere vuota!" << endl;
-        cin.get(); // attende l'input dell'utente prima di tornare al menu 
-        return;
-    }
-
-    do {
-        cout << "Ora inizio (HH:MM): ";
-        getline(cin, nuova_attivita.ora_inizio); // leggere l'ora di inizio 
-    } while (!validaOra(nuova_attivita.ora_inizio));
-
-    do {
-        cout << "Ora fine (HH:MM): ";
-        getline(cin, nuova_attivita.ora_fine); // leggere l'ora di fine 
-    } while (!validaOra(nuova_attivita.ora_fine));
-
-    do {
-        cout << "Data (YYYY-MM-DD): ";
-        getline(cin, nuova_attivita.data); // leggere la data
-    } while (!validaData(nuova_attivita.data));
-
-    attivita.push_back(nuova_attivita);
-    salvaSuFile();
-
-    cout << "\n✅ Attivita salvata con successo!" << endl;
-    cin.get(); // attendre l'input prima di tornare al menu 
+   
 }
 
-void DiarioAttivita::visualizzaAttivita() {
-    pulisciSchermo();
-    string data;
+void DiarioAttivita::visualizzaAttivita() const{
 
-    do {
-        cout << "\nInserisci la data (YYYY-MM-DD): ";
-        cin >> data; // legeree la data 
-        if (!validaData(data)) {
-            cout << "❌ Formato data non valido!" << endl;
-        }
-    } while (!validaData(data));
-
-    vector<Attivita> attivita_giorno; 
-    for (const auto& att : attivita) {
-        if (att.data == data) {
-            attivita_giorno.push_back(att); // aggiungere le attivita del giorno specificato
-        }
-    }
-
-    if (attivita_giorno.empty()) {
-        cout << "\n📝 Nessuna attivita registrata per questo giorno" << endl;
-    } else {
-        sort(attivita_giorno.begin(), attivita_giorno.end(), // ordinare le attivita per ora di inizio
-             [](const Attivita& a, const Attivita& b) {
-                 return a.ora_inizio < b.ora_inizio;
-             });
-
-        for (const auto& att : attivita_giorno) {
-            cout << att.ora_inizio << " - " << att.ora_fine << ": " << att.descrizione << endl;
-        }
-    }
-
-    cin.ignore();// pulire il buffer di input
-    cin.get();// attende l'input dell'utente prima di tornare al menu
 }
 
-void DiarioAttivita::visualizzaTutteAttivita() {
-    pulisciSchermo();
-
-    if (attivita.empty()) {
-        cout << "\n📝 Nessuna attivita registrata" << endl;
-    } else {
-        map<string, vector<Attivita>> attivita_per_data;// mappa per raggruppare le attivita per data
-        for (const auto& att : attivita) {
-            attivita_per_data[att.data].push_back(att);
-        }
-
-        for (auto& [data, lista_att] : attivita_per_data) {
-            cout << "\n📅 " << data << ":" << endl;
-
-            sort(lista_att.begin(), lista_att.end(),
-                 [](const Attivita& a, const Attivita& b) {
-                     return a.ora_inizio < b.ora_inizio;
-                 });
-
-            for (const auto& att : lista_att) {
-                cout << "  " << att.ora_inizio << " - " << att.ora_fine
-                     << ": " << att.descrizione << endl;
-            }
-        }
-    }
-
-    cin.ignore();// pulire il buffer di input
-    cin.get();// attende l'input dell'utente prima di tornare al menu
+void DiarioAttivita::visualizzaTutteAttivita() const {
+    
 }
 
 void DiarioAttivita::eliminaAttivita() {
-    pulisciSchermo();
 
-    if (attivita.empty()) {
-        cout << "\n📝 Nessuna attivita da eliminare" << endl;
-        cin.ignore();
-        cin.get();//asspettare l'input dell'utente prima di tornare al menu
-        return;
-    }
-
-    for (size_t i = 0; i < attivita.size(); ++i) {
-        cout << i + 1 << ". " << attivita[i].data << " "
-             << attivita[i].ora_inizio << "-" << attivita[i].ora_fine
-             << ": " << attivita[i].descrizione << endl;
-    }// mostrare tutte le attivita
-
-    cout << "\nInserisci il numero dell'attivita da eliminare (0 per annullare): ";
-    int scelta;
-    cin >> scelta;
-
-    if (scelta > 0 && scelta <= static_cast<int>(attivita.size())) {
-        attivita.erase(attivita.begin() + scelta - 1);
-        salvaSuFile();
-        cout << "✅ Attivita eliminata con successo!" << endl;
-    } else if (scelta != 0) {
-        cout << "❌ Numero non valido!" << endl;
-    }
-
-    cin.ignore();// pulire il buffer di input
-    cin.get();// attende l'input dell'utente prima di tornare al menu
 }
 
 void DiarioAttivita::salvaSuFile() {
-    ofstream file(nome_file);
+    std::ofstream file(nome_file);
     for (const auto& att : attivita) {
         file << att.data << "|" << att.ora_inizio << "|"
-             << att.ora_fine << "|" << att.descrizione << endl;
+             << att.ora_fine << "|" << att.descrizione << std::endl;
     }
 }
 
 void DiarioAttivita::caricaDaFile() {
-    ifstream file(nome_file);
-    string linea;
-    while (getline(file, linea)) {
-        stringstream ss(linea);
-        string data, ora_inizio, ora_fine, descrizione;
+    std::ifstream file(nome_file);
+    std::string linea;
+    while (std::getline(file, linea)) {
+        std::stringstream ss(linea);
+        std::string data, ora_inizio, ora_fine, descrizione;
 
-        if (getline(ss, data, '|') &&
-            getline(ss, ora_inizio, '|') &&
-            getline(ss, ora_fine, '|') &&
-            getline(ss, descrizione)) {
+        if (std::getline(ss, data, '|') &&
+            std::getline(ss, ora_inizio, '|') &&
+            std::getline(ss, ora_fine, '|') &&
+            std::getline(ss, descrizione)) {
             attivita.emplace_back(descrizione, ora_inizio, ora_fine, data);
         }
     }
-}
-
-void DiarioAttivita::mostraMenu() {
-    int scelta;
-
-    do {
-        pulisciSchermo();
-
-        cout << "\n📓 Diario delle Attivita\n";
-        cout << "1. ➕ Aggiungi nuova attivita\n";
-        cout << "2. 👁️  Visualizza attivita di un giorno\n";
-        cout << "3. 📋 Visualizza tutte le attivita\n";
-        cout << "4. 🗑️  Elimina attivita\n";
-        cout << "5. 🚪 Esci\n";
-        cout << "\n🎯 Scegli un'opzione (1-5): ";
-        cin >> scelta;
-
-        switch (scelta) {
-            case 1: aggiungiAttivita(); break;
-            case 2: visualizzaAttivita(); break;
-            case 3: visualizzaTutteAttivita(); break;
-            case 4: eliminaAttivita(); break;
-            case 5: cout << "\n👋 Arrivederci!\n"; break;
-            default:
-                cout << "\n❌ Scelta non valida!\n";
-                cin.ignore();
-                cin.get();
-                break;
-        }
-    } while (scelta != 5);
 }
