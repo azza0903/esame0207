@@ -102,7 +102,7 @@ void DiarioAttivita::visualizzaAttivita() {
     vector<Attivita> attivita_giorno; 
     for (const auto& att : attivita) {
         if (att.data == data) {
-            attivita_giorno.push_back(att);
+            attivita_giorno.push_back(att); // aggiungere le attivita del giorno specificato
         }
     }
 
@@ -159,7 +159,7 @@ void DiarioAttivita::eliminaAttivita() {
     if (attivita.empty()) {
         cout << "\n📝 Nessuna attivita da eliminare" << endl;
         cin.ignore();
-        cin.get();
+        cin.get();//asspettare l'input dell'utente prima di tornare al menu
         return;
     }
 
@@ -167,7 +167,7 @@ void DiarioAttivita::eliminaAttivita() {
         cout << i + 1 << ". " << attivita[i].data << " "
              << attivita[i].ora_inizio << "-" << attivita[i].ora_fine
              << ": " << attivita[i].descrizione << endl;
-    }
+    }// mostrare tutte le attivita
 
     cout << "\nInserisci il numero dell'attivita da eliminare (0 per annullare): ";
     int scelta;
