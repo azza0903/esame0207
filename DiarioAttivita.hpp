@@ -1,8 +1,9 @@
-#ifndef DIARIO_ATTIVITA_HPP
-#define DIARIO_ATTIVITA_HPP
+#ifndef DIARIOATTIVITA_HPP
+#define DIARIOATTIVITA_HPP
 
 #include <string>
 #include <vector>
+#include <map>
 
 struct Attivita {
     std::string descrizione;
@@ -10,8 +11,7 @@ struct Attivita {
     std::string ora_fine;
     std::string data;
 
-    Attivita(const std::string& desc = "", const std::string& inizio = "",
-             const std::string& fine = "", const std::string& d = "");
+    Attivita(const std::string& desc, const std::string& inizio, const std::string& fine, const std::string& d);
 };
 
 class DiarioAttivita {
@@ -19,28 +19,25 @@ private:
     std::vector<Attivita> attivita;
     std::string nome_file;
 
-    void pulisciSchermo();
-   
-    friend class DiarioAttivitaTest;// Permette l'accesso ai membri privati per i test
-
 public:
     DiarioAttivita();
-    ~DiarioAttivita();// Distruttore per salvare le attività su file
-    bool validaOra(const std::string& ora); // Controlla se l'ora è valida nel formato HH:MM
-    bool validaData(const std::string& data); // Controlla se la data è valida nel formato YYYY-MM-DD
-    void aggiungiAttivita(); // Aggiunge una nuova attività al diario
-    void visualizzaAttivita() const;// Visualizza le attività di un giorno specifico
-    void visualizzaTutteAttivita()const;// Visualizza tutte le attività registrate
-    void eliminaAttivita();// Elimina un'attività specifica dal diario
-    void mostraMenu();// Mostra il menu principale del diario
+    ~DiarioAttivita();
 
-    void salvaSuFile();//   Salva le attività su un file
-    void caricaDaFile();// Carica le attività da un file
+    bool validaOra(const std::string& ora);// Validazione dell'ora nel formato HH:MM
+    bool validaData(const std::string& data);// Validazione della data nel formato YYYY-MM-DD
+    // Aggiunge un'attività al diario
 
-    // Accesso per i test
-    const std::vector<Attivita>& getAttivita() const { return attivita; } // Restituisce la lista delle attività
-    void setAttivita(const std::vector<Attivita>& lista) { attivita = lista; }// Imposta la lista delle attività
+    void aggiungiAttivita(const Attivita& nuova);// Aggiunge un'attività al diario e la salva su file
+    std::vector<Attivita> visualizzaAttivita(const std::string& data) const; // Visualizza le attività di una data specifica, ordinate per ora di inizio
+    std::map<std::string, std::vector<Attivita>> visualizzaTutteAttivita() const;// Visualizza tutte le attività, raggruppate per data e ordinate per ora di inizio
+    bool eliminaAttivita(size_t indice);// Elimina un'attività specificata dall'indice e salva su file
 
+    void salvaSuFile();// Salva le attività su un file
+    void caricaDaFile();//  Carica le attività da un file
+
+    std::vector<Attivita> getAttivita() const { return attivita; }// Restituisce l'elenco delle attività
+    void setAttivita(const std::vector<Attivita>& nuove) { attivita = nuove; }// Imposta l'elenco delle attività
 };
 
 #endif
+
