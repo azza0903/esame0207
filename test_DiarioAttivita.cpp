@@ -89,6 +89,6 @@ TEST(DiarioAttivitaTest, EliminaAttivita) {
         {"Compiti", "08:00", "09:00", "2025-06-29"},
         {"Passeggiata", "18:00", "19:00", "2025-06-29"}
     };
-    diario.setAttivita(lista);
-    diario.eliminaAttivita(); // Test interattivo simulato: non testabile direttamente
+    diario.setAttivita(lista); 
+    diario.eliminaAttivita(0);  // Test interattivo simulato: non testabile direttamente
 }

@@ -10,7 +10,8 @@ struct Attivita {
     std::string ora_inizio;
     std::string ora_fine;
     std::string data;
-
+    
+    Attivita() = default; // Costruttore di default
     Attivita(const std::string& desc, const std::string& inizio, const std::string& fine, const std::string& d);
 };
 
