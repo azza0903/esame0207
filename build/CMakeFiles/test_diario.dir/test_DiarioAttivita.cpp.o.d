@@ -281,4 +281,8 @@ CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.o: \
  /workspaces/esame0207/build/_deps/googletest-src/googletest/include/gtest/gtest-test-part.h \
  /workspaces/esame0207/build/_deps/googletest-src/googletest/include/gtest/gtest-typed-test.h \
  /workspaces/esame0207/build/_deps/googletest-src/googletest/include/gtest/gtest_pred_impl.h \
- /workspaces/esame0207/build/_deps/googletest-src/googletest/include/gtest/gtest_prod.h
+ /workspaces/esame0207/build/_deps/googletest-src/googletest/include/gtest/gtest_prod.h \
+ /usr/include/c++/13/fstream \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
+ /usr/include/c++/13/bits/fstream.tcc

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.o CMakeFiles/test_diario.dir/DiarioAttivita.cpp.o -o test_diario  lib/libgtest_main.a lib/libgtest.a -lpthread 

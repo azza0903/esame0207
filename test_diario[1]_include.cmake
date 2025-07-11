@@ -1,0 +1,5 @@
+if(EXISTS "/workspaces/esame0207/test_diario[1]_tests.cmake")
+  include("/workspaces/esame0207/test_diario[1]_tests.cmake")
+else()
+  add_test(test_diario_NOT_BUILT test_diario_NOT_BUILT)
+endif()
