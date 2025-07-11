@@ -1,0 +1,7 @@
+DiarioAttivitaTest.ValidaOraGenerale 4 0.000843442
+DiarioAttivitaTest.ValidaDataGenerale 4 0.000774162
+DiarioAttivitaTest.AggiuntaGenerale 4 0.000841886
+DiarioAttivitaTest.CaricamentoGenerale 4 0.000758568
+DiarioAttivitaTest.VisualizzazioneGenerale 4 0.000764094
+DiarioAttivitaTest.EliminazioneGenerale 4 0.000804212
+---
