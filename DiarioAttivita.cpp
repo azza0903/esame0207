@@ -12,6 +12,12 @@ DiarioAttivita::DiarioAttivita() {
     nome_file = "attivita.txt";
     caricaDaFile();
 }
+// Costruttore Diario con nome file specifico
+DiarioAttivita::DiarioAttivita(const std::string& fileTest) {
+    nome_file = fileTest;
+    caricaDaFile();
+}
+
 
 // Distruttore
 DiarioAttivita::~DiarioAttivita() {

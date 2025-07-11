@@ -22,6 +22,7 @@ private:
 
 public:
     DiarioAttivita();
+    DiarioAttivita(const std::string& fileTest); // Costruttore con nome file specifico
     ~DiarioAttivita();
 
     bool validaOra(const std::string& ora);// Validazione dell'ora nel formato HH:MM

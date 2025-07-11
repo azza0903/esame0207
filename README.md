@@ -1,4 +1,4 @@
-# Diario delle Attività 📓
+# Diario delle Attività 
 
 Questo è un progetto C++ per la gestione di un diario di attività giornaliere.
 
@@ -27,4 +27,4 @@ cmake --build build
 - `attivita.txt`: File dati delle attività
 - `CMakeLists.txt`: Configurazione del progetto
 
-Creato da Azouza 💻
+Creato da Azouza 

@@ -73,29 +73,29 @@ CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.o: CMakeFiles/test_diario.dir
 CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.o: /workspaces/esame0207/test_DiarioAttivita.cpp
 CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.o: CMakeFiles/test_diario.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/esame0207/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.o -MF CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.o.d -o CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.o -c /workspaces/esame0207/test_DiarioAttivita.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.o -MF CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.o.d -o CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.o -c /workspaces/esame0207/test_DiarioAttivita.cpp
 
 CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/esame0207/test_DiarioAttivita.cpp > CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/esame0207/test_DiarioAttivita.cpp > CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.i
 
 CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/esame0207/test_DiarioAttivita.cpp -o CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/esame0207/test_DiarioAttivita.cpp -o CMakeFiles/test_diario.dir/test_DiarioAttivita.cpp.s
 
 CMakeFiles/test_diario.dir/DiarioAttivita.cpp.o: CMakeFiles/test_diario.dir/flags.make
 CMakeFiles/test_diario.dir/DiarioAttivita.cpp.o: /workspaces/esame0207/DiarioAttivita.cpp
 CMakeFiles/test_diario.dir/DiarioAttivita.cpp.o: CMakeFiles/test_diario.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/esame0207/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/test_diario.dir/DiarioAttivita.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_diario.dir/DiarioAttivita.cpp.o -MF CMakeFiles/test_diario.dir/DiarioAttivita.cpp.o.d -o CMakeFiles/test_diario.dir/DiarioAttivita.cpp.o -c /workspaces/esame0207/DiarioAttivita.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_diario.dir/DiarioAttivita.cpp.o -MF CMakeFiles/test_diario.dir/DiarioAttivita.cpp.o.d -o CMakeFiles/test_diario.dir/DiarioAttivita.cpp.o -c /workspaces/esame0207/DiarioAttivita.cpp
 
 CMakeFiles/test_diario.dir/DiarioAttivita.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/test_diario.dir/DiarioAttivita.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/esame0207/DiarioAttivita.cpp > CMakeFiles/test_diario.dir/DiarioAttivita.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/esame0207/DiarioAttivita.cpp > CMakeFiles/test_diario.dir/DiarioAttivita.cpp.i
 
 CMakeFiles/test_diario.dir/DiarioAttivita.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/test_diario.dir/DiarioAttivita.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/esame0207/DiarioAttivita.cpp -o CMakeFiles/test_diario.dir/DiarioAttivita.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/esame0207/DiarioAttivita.cpp -o CMakeFiles/test_diario.dir/DiarioAttivita.cpp.s
 
 # Object files for target test_diario
 test_diario_OBJECTS = \
