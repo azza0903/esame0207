@@ -16,7 +16,7 @@ Assicurati di avere CMake installato. Poi esegui:
 ```bash
 cmake -S . -B build
 cmake --build build
-./build/diario
+./build/DiarioAttivita
 ```
 
 ## Struttura dei File
