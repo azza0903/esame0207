@@ -73,29 +73,29 @@ CMakeFiles/DiarioAttivita.dir/main.cpp.o: CMakeFiles/DiarioAttivita.dir/flags.ma
 CMakeFiles/DiarioAttivita.dir/main.cpp.o: /workspaces/esame0207/main.cpp
 CMakeFiles/DiarioAttivita.dir/main.cpp.o: CMakeFiles/DiarioAttivita.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/esame0207/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DiarioAttivita.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DiarioAttivita.dir/main.cpp.o -MF CMakeFiles/DiarioAttivita.dir/main.cpp.o.d -o CMakeFiles/DiarioAttivita.dir/main.cpp.o -c /workspaces/esame0207/main.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DiarioAttivita.dir/main.cpp.o -MF CMakeFiles/DiarioAttivita.dir/main.cpp.o.d -o CMakeFiles/DiarioAttivita.dir/main.cpp.o -c /workspaces/esame0207/main.cpp
 
 CMakeFiles/DiarioAttivita.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/DiarioAttivita.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/esame0207/main.cpp > CMakeFiles/DiarioAttivita.dir/main.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/esame0207/main.cpp > CMakeFiles/DiarioAttivita.dir/main.cpp.i
 
 CMakeFiles/DiarioAttivita.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/DiarioAttivita.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/esame0207/main.cpp -o CMakeFiles/DiarioAttivita.dir/main.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/esame0207/main.cpp -o CMakeFiles/DiarioAttivita.dir/main.cpp.s
 
 CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.o: CMakeFiles/DiarioAttivita.dir/flags.make
 CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.o: /workspaces/esame0207/DiarioAttivita.cpp
 CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.o: CMakeFiles/DiarioAttivita.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/esame0207/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.o -MF CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.o.d -o CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.o -c /workspaces/esame0207/DiarioAttivita.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.o -MF CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.o.d -o CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.o -c /workspaces/esame0207/DiarioAttivita.cpp
 
 CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/esame0207/DiarioAttivita.cpp > CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/esame0207/DiarioAttivita.cpp > CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.i
 
 CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/esame0207/DiarioAttivita.cpp -o CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/esame0207/DiarioAttivita.cpp -o CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.s
 
 # Object files for target DiarioAttivita
 DiarioAttivita_OBJECTS = \
