@@ -1,6 +1,7 @@
 
 #include "DiarioAttivita.hpp"
 #include <gtest/gtest.h>
+#include <set>
 
 // Test: carica correttamente le attività da attivita.txt
 TEST(DiarioAttivitaTest, CaricamentoAttivitaDaFile) {
@@ -22,14 +23,19 @@ TEST(DiarioAttivitaTest, AttivitaCaricateComplete) {
     }
 }
 
-// Test: verifica che la visualizzazione per ogni data esistente non sia vuota
+// Test: verifica che la visualizzazione per ogni data esistente non sia vuota (una sola volta per data)
 TEST(DiarioAttivitaTest, VisualizzaAttivitaPerDatePresenti) {
     DiarioAttivita diario;
     diario.caricaDaFile();
     auto lista = diario.getAttivita();
 
+    std::set<std::string> dateUniche;
     for (const auto& att : lista) {
-        auto visualizzate = diario.visualizzaAttivita(att.data);
+        dateUniche.insert(att.data);
+    }
+
+    for (const auto& data : dateUniche) {
+        auto visualizzate = diario.visualizzaAttivita(data);
         EXPECT_FALSE(visualizzate.empty());
     }
 }
