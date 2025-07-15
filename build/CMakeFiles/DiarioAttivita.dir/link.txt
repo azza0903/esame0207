@@ -1,1 +1,1 @@
-/usr/bin/g++ CMakeFiles/DiarioAttivita.dir/main.cpp.o CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.o -o DiarioAttivita 
+/usr/bin/g++ -g CMakeFiles/DiarioAttivita.dir/main.cpp.o CMakeFiles/DiarioAttivita.dir/DiarioAttivita.cpp.o -o DiarioAttivita 

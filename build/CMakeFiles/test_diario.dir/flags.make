@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/workspaces/esame0207 -isystem /workspaces/esame0207/build/_deps/googletest-src/googletest/include -isystem /workspaces/esame0207/build/_deps/googletest-src/googletest
 
-CXX_FLAGS = -std=gnu++17
+CXX_FLAGS = -g -std=gnu++17
 
