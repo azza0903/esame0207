@@ -23,9 +23,9 @@ DiarioAttivita::~DiarioAttivita() {
 bool DiarioAttivita::validaOra(const std::string& ora) {
     if (ora.length() != 5 || ora[2] != ':') return false;
     try {
-        int ore = std::stoi(ora.substr(0, 2));
-        int minuti = std::stoi(ora.substr(3, 2));
-        return (ore >= 0 && ore <= 23 && minuti >= 0 && minuti <= 59);
+        int ore = std::stoi(ora.substr(0, 2)); // Estrae le ore
+        int minuti = std::stoi(ora.substr(3, 2)); // Estrae i minuti
+        return (ore >= 0 && ore <= 23 && minuti >= 0 && minuti <= 59);// Controlla che le ore siano tra 0 e 23 e i minuti tra 0 e 59
     } catch (...) {
         return false;
     }
@@ -46,7 +46,7 @@ bool DiarioAttivita::validaData(const std::string& data) {
 
 // Aggiungi attività
 void DiarioAttivita::aggiungiAttivita(const Attivita& nuova) {
-    attivita.push_back(nuova);
+    attivita.push_back(nuova);// Aggiunge l'attività al vettore
     salvaSuFile();
 }
 
@@ -65,10 +65,11 @@ std::vector<Attivita> DiarioAttivita::visualizzaAttivita(const std::string& data
 }
 
 // Visualizza tutte le attività per data ordinate per ora
-std::map<std::string, std::vector<Attivita>> DiarioAttivita::visualizzaTutteAttivita() const {
-    std::map<std::string, std::vector<Attivita>> risultato;
+std::map<std::string, // Visualizza tutte le attività raggruppate per data
+std::vector<Attivita>> DiarioAttivita::visualizzaTutteAttivita() const {
+    std::map<std::string, std::vector<Attivita>> risultato;// Mappa per raggruppare le attività per data
     for (const auto& att : attivita) {
-        risultato[att.data].push_back(att);
+        risultato[att.data].push_back(att);// Aggiunge l'attività alla mappa sotto la data corrispondente
     }
     for (auto& [_, lista] : risultato) {
         std::sort(lista.begin(), lista.end(), [](const Attivita& a, const Attivita& b) {
