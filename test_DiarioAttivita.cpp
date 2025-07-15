@@ -1,3 +1,4 @@
+
 #include "DiarioAttivita.hpp"
 #include <gtest/gtest.h>
 
@@ -14,10 +15,10 @@ TEST(DiarioAttivitaTest, AttivitaCaricateComplete) {
     DiarioAttivita diario;
     diario.caricaDaFile();
     for (const auto& att : diario.getAttivita()) {
-        EXPECT_FALSE(att.getData().empty());
-        EXPECT_FALSE(att.getOraInizio().empty());
-        EXPECT_FALSE(att.getOraFine().empty());
-        EXPECT_FALSE(att.getDescrizione().empty());
+        EXPECT_FALSE(att.data.empty());
+        EXPECT_FALSE(att.oraInizio.empty());
+        EXPECT_FALSE(att.oraFine.empty());
+        EXPECT_FALSE(att.descrizione.empty());
     }
 }
 
@@ -28,12 +29,12 @@ TEST(DiarioAttivitaTest, VisualizzaAttivitaPerDatePresenti) {
     auto lista = diario.getAttivita();
 
     for (const auto& att : lista) {
-        auto visualizzate = diario.visualizzaAttivita(att.getData());
+        auto visualizzate = diario.visualizzaAttivita(att.data);
         EXPECT_FALSE(visualizzate.empty());
     }
 }
 
-// Test: verifica che la funzione getAttivita restituisca sempre la stessa lista dopo caricaDaFile
+// Test: verifica che la lista delle attività sia coerente tra più chiamate
 TEST(DiarioAttivitaTest, CoerenzaListaAttivita) {
     DiarioAttivita diario;
     diario.caricaDaFile();
