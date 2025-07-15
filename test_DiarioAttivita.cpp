@@ -16,8 +16,8 @@ TEST(DiarioAttivitaTest, AttivitaCaricateComplete) {
     diario.caricaDaFile();
     for (const auto& att : diario.getAttivita()) {
         EXPECT_FALSE(att.data.empty());
-        EXPECT_FALSE(att.oraInizio.empty());
-        EXPECT_FALSE(att.oraFine.empty());
+        EXPECT_FALSE(att.ora_inizio.empty());
+        EXPECT_FALSE(att.ora_fine.empty());
         EXPECT_FALSE(att.descrizione.empty());
     }
 }

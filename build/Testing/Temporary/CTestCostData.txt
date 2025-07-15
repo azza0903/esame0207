@@ -4,4 +4,8 @@ DiarioAttivitaTest.AggiuntaGenerale 8 0.00299818
 DiarioAttivitaTest.CaricamentoGenerale 8 0.00245216
 DiarioAttivitaTest.VisualizzazioneGenerale 8 0.00215375
 DiarioAttivitaTest.EliminazioneGenerale 8 0.00295723
+DiarioAttivitaTest.CaricamentoAttivitaDaFile 2 0.00481075
+DiarioAttivitaTest.AttivitaCaricateComplete 2 0.00514024
+DiarioAttivitaTest.VisualizzaAttivitaPerDatePresenti 2 0.125923
+DiarioAttivitaTest.CoerenzaListaAttivita 2 0.00679515
 ---

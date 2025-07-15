@@ -1,3 +1,30 @@
-Start testing: Jul 15 23:33 UTC
+Start testing: Jul 15 23:40 UTC
 ----------------------------------------------------------
-End testing: Jul 15 23:33 UTC
+4/4 Testing: DiarioAttivitaTest.CoerenzaListaAttivita
+4/4 Test: DiarioAttivitaTest.CoerenzaListaAttivita
+Command: "/workspaces/esame0207/build/test_diario" "--gtest_filter=DiarioAttivitaTest.CoerenzaListaAttivita" "--gtest_also_run_disabled_tests"
+Directory: /workspaces/esame0207/build
+"DiarioAttivitaTest.CoerenzaListaAttivita" start time: Jul 15 23:40 UTC
+Output:
+----------------------------------------------------------
+Running main() from /workspaces/esame0207/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DiarioAttivitaTest.CoerenzaListaAttivita
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DiarioAttivitaTest
+[ RUN      ] DiarioAttivitaTest.CoerenzaListaAttivita
+[       OK ] DiarioAttivitaTest.CoerenzaListaAttivita (6 ms)
+[----------] 1 test from DiarioAttivitaTest (6 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (6 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"DiarioAttivitaTest.CoerenzaListaAttivita" end time: Jul 15 23:40 UTC
+"DiarioAttivitaTest.CoerenzaListaAttivita" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jul 15 23:40 UTC
