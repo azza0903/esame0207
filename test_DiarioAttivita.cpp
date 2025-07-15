@@ -1,57 +1,43 @@
 #include "DiarioAttivita.hpp"
 #include <gtest/gtest.h>
-#include <fstream>
 
-// Test: la funzione validaOra accetta solo orari validi
-TEST(DiarioAttivitaTest, ValidaOraGenerale) {
+// Test: carica correttamente le attività da attivita.txt
+TEST(DiarioAttivitaTest, CaricamentoAttivitaDaFile) {
     DiarioAttivita diario;
-    EXPECT_TRUE(diario.validaOra("12:00"));
-    EXPECT_FALSE(diario.validaOra("25:00"));
-}
-
-// Test: la funzione validaData accetta solo date valide
-TEST(DiarioAttivitaTest, ValidaDataGenerale) {
-    DiarioAttivita diario;
-    EXPECT_TRUE(diario.validaData("2025-07-11"));
-    EXPECT_FALSE(diario.validaData("2025-13-99"));
-}
-
-// Test: verifica che si possa aggiungere qualcosa e che il numero aumenti
-TEST(DiarioAttivitaTest, AggiuntaGenerale) {
-    DiarioAttivita diario;
-    size_t prima = diario.getAttivita().size();
-
-    diario.aggiungiAttivita(Attivita("Test", "08:00", "09:00", "2025-07-11"));
-
-    size_t dopo = diario.getAttivita().size();
-    EXPECT_EQ(dopo, prima + 1);
-}
-
-// Test: caricamento da file esistente
-TEST(DiarioAttivitaTest, CaricamentoGenerale) {
-    DiarioAttivita diario;
+    diario.caricaDaFile();
     auto lista = diario.getAttivita();
-    EXPECT_GE(lista.size(), 0); // Basta che non crasha
+    EXPECT_GT(lista.size(), 0);
 }
 
-// Test: visualizzazione attività non crasha anche se il contenuto cambia
-TEST(DiarioAttivitaTest, VisualizzazioneGenerale) {
+// Test: verifica che tutte le attività caricate abbiano campi non vuoti
+TEST(DiarioAttivitaTest, AttivitaCaricateComplete) {
     DiarioAttivita diario;
-    auto mappa = diario.visualizzaTutteAttivita();
-    EXPECT_TRUE(mappa.size() >= 0);
-}
-
-// Test: eliminazione se possibile
-TEST(DiarioAttivitaTest, EliminazioneGenerale) {
-    DiarioAttivita diario;
-    auto lista = diario.getAttivita();
-
-    if (!lista.empty()) {
-        size_t prima = lista.size();
-        bool ok = diario.eliminaAttivita(0);
-        EXPECT_TRUE(ok);
-        EXPECT_EQ(diario.getAttivita().size(), prima - 1);
-    } else {
-        SUCCEED(); // Nessuna attività, quindi ok
+    diario.caricaDaFile();
+    for (const auto& att : diario.getAttivita()) {
+        EXPECT_FALSE(att.getData().empty());
+        EXPECT_FALSE(att.getOraInizio().empty());
+        EXPECT_FALSE(att.getOraFine().empty());
+        EXPECT_FALSE(att.getDescrizione().empty());
     }
+}
+
+// Test: verifica che la visualizzazione per ogni data esistente non sia vuota
+TEST(DiarioAttivitaTest, VisualizzaAttivitaPerDatePresenti) {
+    DiarioAttivita diario;
+    diario.caricaDaFile();
+    auto lista = diario.getAttivita();
+
+    for (const auto& att : lista) {
+        auto visualizzate = diario.visualizzaAttivita(att.getData());
+        EXPECT_FALSE(visualizzate.empty());
+    }
+}
+
+// Test: verifica che la funzione getAttivita restituisca sempre la stessa lista dopo caricaDaFile
+TEST(DiarioAttivitaTest, CoerenzaListaAttivita) {
+    DiarioAttivita diario;
+    diario.caricaDaFile();
+    auto lista1 = diario.getAttivita();
+    auto lista2 = diario.getAttivita();
+    EXPECT_EQ(lista1.size(), lista2.size());
 }

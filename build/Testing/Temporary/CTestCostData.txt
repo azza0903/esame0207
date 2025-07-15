@@ -1,7 +1,7 @@
-DiarioAttivitaTest.ValidaOraGenerale 5 0.00277004
-DiarioAttivitaTest.ValidaDataGenerale 5 0.00138839
-DiarioAttivitaTest.AggiuntaGenerale 5 0.00236027
-DiarioAttivitaTest.CaricamentoGenerale 5 0.0013786
-DiarioAttivitaTest.VisualizzazioneGenerale 5 0.00139816
-DiarioAttivitaTest.EliminazioneGenerale 5 0.00236743
+DiarioAttivitaTest.ValidaOraGenerale 8 0.00300401
+DiarioAttivitaTest.ValidaDataGenerale 8 0.00214174
+DiarioAttivitaTest.AggiuntaGenerale 8 0.00299818
+DiarioAttivitaTest.CaricamentoGenerale 8 0.00245216
+DiarioAttivitaTest.VisualizzazioneGenerale 8 0.00215375
+DiarioAttivitaTest.EliminazioneGenerale 8 0.00295723
 ---
