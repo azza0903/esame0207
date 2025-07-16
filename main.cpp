@@ -33,7 +33,7 @@ int main() {
         cin >> scelta;
 
         if (cin.fail()) {
-            cin.clear();// Reset dello stato di errore
+            cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             scelta = 0;
         }
@@ -45,11 +45,11 @@ int main() {
 
                 cout << "\nDescrizione attivita: ";
                 cin.ignore();
-                getline(cin, nuova.descrizione);// Legge la descrizione dell'attività
+                getline(cin, nuova.descrizione);
 
                 if (nuova.descrizione.empty()) {
-                    cout << "❌ Errore: La descrizione non può essere vuota!" << endl;
-                    cin.get();// Attende l'input dell'utente prima di continuare
+                    cout << "❌ La descrizione non può essere vuota!" << endl;
+                    cin.get();
                     break;
                 }
 
@@ -78,7 +78,6 @@ int main() {
                 }
 
                 diario.aggiungiAttivita(nuova);
-
                 cout << "\n✅ Attivita salvata con successo!" << endl;
                 cin.get();
                 break;
@@ -93,26 +92,16 @@ int main() {
                 if (!diario.validaData(data)) {
                     cout << "❌ Formato data non valido!" << endl;
                 } else {
-                    vector<Attivita> attivita_giorno;
-                    for (const auto& att : diario.getAttivita()) {
-                        if (att.data == data) {
-                            attivita_giorno.push_back(att);
-                        }
-                    }
-
-                    if (attivita_giorno.empty()) {
+                    auto attivita = diario.visualizzaAttivita(data);
+                    if (attivita.empty()) {
                         cout << "\n📝 Nessuna attivita registrata per questo giorno" << endl;
                     } else {
-                        sort(attivita_giorno.begin(), attivita_giorno.end(),
-                             [](const Attivita& a, const Attivita& b) {
-                                 return a.ora_inizio < b.ora_inizio;
-                             });
-
-                        for (const auto& att : attivita_giorno) {
+                        for (const auto& att : attivita) {
                             cout << att.ora_inizio << " - " << att.ora_fine << ": " << att.descrizione << endl;
                         }
                     }
                 }
+
                 cin.ignore();
                 cin.get();
                 break;
@@ -120,27 +109,15 @@ int main() {
 
             case 3: {
                 pulisciSchermo();
+                auto mappa = diario.visualizzaTutteAttivita();
 
-                vector<Attivita> elenco = diario.getAttivita();
-                if (elenco.empty()) {
+                if (mappa.empty()) {
                     cout << "\n📝 Nessuna attivita registrata" << endl;
                 } else {
-                    map<string, vector<Attivita>> attivita_per_data;
-                    for (const auto& att : elenco) {
-                        attivita_per_data[att.data].push_back(att);
-                    }
-
-                    for (auto& [data, lista_att] : attivita_per_data) {
-                        cout << "\n📅 " << data << ":" << endl;
-
-                        sort(lista_att.begin(), lista_att.end(),
-                             [](const Attivita& a, const Attivita& b) {
-                                 return a.ora_inizio < b.ora_inizio;
-                             });
-
-                        for (const auto& att : lista_att) {
-                            cout << "  " << att.ora_inizio << " - " << att.ora_fine
-                                 << ": " << att.descrizione << endl;
+                    for (const auto& [data, lista] : mappa) {
+                        cout << "\n📅 " << data << ":\n";
+                        for (const auto& att : lista) {
+                            cout << "  " << att.ora_inizio << " - " << att.ora_fine << ": " << att.descrizione << endl;
                         }
                     }
                 }
@@ -152,8 +129,8 @@ int main() {
 
             case 4: {
                 pulisciSchermo();
+                const auto& elenco = diario.getAttivita();
 
-                vector<Attivita> elenco = diario.getAttivita();
                 if (elenco.empty()) {
                     cout << "\n📝 Nessuna attivita da eliminare" << endl;
                     cin.ignore();
@@ -171,13 +148,12 @@ int main() {
                 int scelta_elimina;
                 cin >> scelta_elimina;
 
-                if (scelta_elimina > 0 && scelta_elimina <= static_cast<int>(elenco.size())) {
-                    elenco.erase(elenco.begin() + scelta_elimina - 1);
-                    diario.setAttivita(elenco);
-                    diario.salvaSuFile();
-                    cout << "✅ Attivita eliminata con successo!" << endl;
-                } else if (scelta_elimina != 0) {
+                if (scelta_elimina == 0) {
+                    cout << "❎ Eliminazione annullata." << endl;
+                } else if (scelta_elimina < 0 || !diario.eliminaAttivita(static_cast<size_t>(scelta_elimina - 1))) {
                     cout << "❌ Numero non valido!" << endl;
+                } else {
+                    cout << "✅ Attivita eliminata con successo!" << endl;
                 }
 
                 cin.ignore();
@@ -195,8 +171,8 @@ int main() {
                 cin.get();
                 break;
         }
+
     } while (scelta != 5);
 
     return 0;
 }
-        
