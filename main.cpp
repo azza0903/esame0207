@@ -33,7 +33,7 @@ int main() {
         cin >> scelta;
 
         if (cin.fail()) {
-            cin.clear();
+            cin.clear();// Reset dello stato di errore
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             scelta = 0;
         }
@@ -45,11 +45,11 @@ int main() {
 
                 cout << "\nDescrizione attivita: ";
                 cin.ignore();
-                getline(cin, nuova.descrizione);
+                getline(cin, nuova.descrizione);// Legge la descrizione dell'attività
 
                 if (nuova.descrizione.empty()) {
                     cout << "❌ Errore: La descrizione non può essere vuota!" << endl;
-                    cin.get();
+                    cin.get();// Attende l'input dell'utente prima di continuare
                     break;
                 }
 
@@ -77,10 +77,7 @@ int main() {
                     break;
                 }
 
-                vector<Attivita> elenco = diario.getAttivita();
-                elenco.push_back(nuova);
-                diario.setAttivita(elenco);
-                diario.salvaSuFile();
+                diario.aggiungiAttivita(nuova);
 
                 cout << "\n✅ Attivita salvata con successo!" << endl;
                 cin.get();
@@ -202,3 +199,4 @@ int main() {
 
     return 0;
 }
+        

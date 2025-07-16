@@ -55,11 +55,11 @@ std::vector<Attivita> DiarioAttivita::visualizzaAttivita(const std::string& data
     std::vector<Attivita> risultato;
     for (const auto& att : attivita) {
         if (att.data == data) {
-            risultato.push_back(att);
+            risultato.push_back(att);// Aggiunge l'attività alla lista dei risultati se la data corrisponde
         }
     }
     std::sort(risultato.begin(), risultato.end(), [](const Attivita& a, const Attivita& b) {
-        return a.ora_inizio < b.ora_inizio;
+        return a.ora_inizio < b.ora_inizio;// Ordina le attività per ora di inizio
     });
     return risultato;
 }
@@ -81,8 +81,8 @@ std::vector<Attivita>> DiarioAttivita::visualizzaTutteAttivita() const {
 
 // Elimina attività tramite indice
 bool DiarioAttivita::eliminaAttivita(size_t indice) {
-    if (indice >= attivita.size()) return false;
-    attivita.erase(attivita.begin() + indice);
+    if (indice >= attivita.size()) return false;// Controlla se l'indice è valido
+    attivita.erase(attivita.begin() + indice);// Rimuove l'attività specificata dall'indice 
     salvaSuFile();
     return true;
 }
@@ -98,17 +98,17 @@ void DiarioAttivita::salvaSuFile() {
 
 // Carica da file
 void DiarioAttivita::caricaDaFile() {
-    std::ifstream file(nome_file);
-    std::string linea;
+    std::ifstream file(nome_file);// Apre il file per la lettura
+    std::string linea;// Legge il file riga per riga
     while (std::getline(file, linea)) {
-        std::stringstream ss(linea);
-        std::string data, ora_inizio, ora_fine, descrizione;
+        std::stringstream ss(linea);// Crea uno stream di stringhe per elaborare la riga
+        std::string data, ora_inizio, ora_fine, descrizione;// Variabili per memorizzare i campi dell'attività
 
         if (std::getline(ss, data, '|') &&
             std::getline(ss, ora_inizio, '|') &&
             std::getline(ss, ora_fine, '|') &&
             std::getline(ss, descrizione)) {
-            attivita.emplace_back(descrizione, ora_inizio, ora_fine, data);
+            attivita.emplace_back(descrizione, ora_inizio, ora_fine, data);// Crea un nuovo oggetto Attivita e lo aggiunge al vettore
         }
     }
 }
